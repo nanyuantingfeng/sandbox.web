@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runScript with mode anonymous webpack async chunks async chunk + React/ReactDOM + createElement(\`script\`) 1`] = `"<div id=\\"root\\"><div class=\\"example__component__example-demo\\"><h2>Hello :-)</h2></div></div>"`;
+
+exports[`runScript with mode anonymous webpack async chunks async chunk + React/ReactDOM 1`] = `"<div id=\\"root\\"><div class=\\"example__component__example-demo\\"><h2>Hello :-)</h2></div></div>"`;
+
+exports[`runScript with mode inline webpack async chunks async chunk + React/ReactDOM + createElement(\`script\`) 1`] = `"<div id=\\"root\\"><div class=\\"example__component__example-demo\\"><h2>Hello :-)</h2></div></div>"`;
+
+exports[`runScript with mode inline webpack async chunks async chunk + React/ReactDOM 1`] = `"<div id=\\"root\\"><div class=\\"example__component__example-demo\\"><h2>Hello :-)</h2></div></div>"`;
+
+exports[`runScript with mode without mode webpack async chunks async chunk + React/ReactDOM + createElement(\`script\`) 1`] = `"<div id=\\"root\\"><div class=\\"example__component__example-demo\\"><h2>Hello :-)</h2></div></div>"`;
+
+exports[`runScript with mode without mode webpack async chunks async chunk + React/ReactDOM 1`] = `"<div id=\\"root\\"><div class=\\"example__component__example-demo\\"><h2>Hello :-)</h2></div></div>"`;

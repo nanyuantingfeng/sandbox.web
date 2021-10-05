@@ -1,0 +1,17 @@
+.idea
+.git
+jest.config.js
+__tests__
+*.js.map
+coverage
+node_modules
+src
+
+.eslintrc
+.gitignore
+.npmignore
+tsconfig.*.json
+tsconfig.json
+rollup.config.js
+.prettierrc
+pnpm-lock.yaml
