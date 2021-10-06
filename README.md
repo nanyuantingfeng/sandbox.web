@@ -32,12 +32,13 @@ runScript(code, host, {scope: 'xxxx'})
     - `scope?:string` This field is required
       In localStorage/sessionStorage/cookie, data will be written to this key
     - `configs?:Array<IFeatureConfigure>` config features
+    - `wrap?: (code: string) => string` wrap original code 
     - `featureCreators?: Array<IFeatureCreator>` external features
     - `mode?: 'inline' | 'anonymous'`  sandbox mode, 默认值 `anonymous`
       - `inline` : create the execution mode using `document.createElement('script')`
       - `anonymous` : use `new Function()` to create the execution mode
 
-> example
+> example configs
 
 ```typescript
 import {runScript} from 'sandbox.web'
@@ -59,6 +60,29 @@ const result = runScript(code, host, {configs})
 // In this demo, the setTimeout/cookie call will perform window native
 // setTimeout/cookie, the sandbox will give up processing the corresponding feature
 ```
+
+> example wrap code
+
+```typescript
+import {runScript} from 'sandbox.web'
+
+function wrap(code){
+  return `
+    var module = {exports : {}}
+    var exports = module.exports
+    ${code}
+    return module.exports
+  `
+}
+
+const coode = ` 
+    module.exports = [1,2,3]
+ `
+const result = runScript(code, {}, {wrap})
+// result === [1,2,3]
+//In this DEMO, the code can use code similar to the CommonJS specification
+```
+
 
 - `dispose(host) : void` clear the sandbox corresponding to the current host
 
@@ -89,6 +113,8 @@ const result = runScript(code, host, {configs})
 
 ## `Custom Feature`
 
+> example custom features
+
 ```typescript
 import {runScript, IFeatureCreator} from 'sandbox.web'
 
@@ -106,11 +132,9 @@ const _feature: IFeatureCreator<any> = (options) => {
   }
 }
 
-const code = `
-   module.exports = window.pow(33)
- `
+const code = ` return window.pow(33) `
 const result = runScript(code, {}, {featureCreators: [_feature]})
-
+// result === 33 * 33
 // In this demo, the `window.pow` call will execute the function defined in `_feature`
 ```
 
