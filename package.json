@@ -1,6 +1,6 @@
 {
   "name": "sandbox.web",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Sandbox for Web based on Proxy & Proto",
   "author": "nanyuantingfeng <nanyuantingfeng@aliyun.com>",
   "main": "dist/index.lib.js",
